@@ -1,0 +1,14 @@
+{
+  "name": "demo-day",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A small order-list library for agent demos. It has real bugs, each with a failing test and an issue.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
