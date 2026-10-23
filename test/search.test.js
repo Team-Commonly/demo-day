@@ -20,3 +20,8 @@ test('a search ignores capitals', () => {
   assert.deepEqual(searchOrders(orders, 'ben').map((o) => o.id), [2]);
   assert.deepEqual(searchOrders(orders, 'MARTIN').map((o) => o.id), [3]);
 });
+
+test('a cleared search box (null or undefined) shows every order', () => {
+  assert.equal(searchOrders(orders, null).length, 3);
+  assert.equal(searchOrders(orders, undefined).length, 3);
+});
