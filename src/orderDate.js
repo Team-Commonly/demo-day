@@ -11,6 +11,8 @@ export function orderDay(placedAt) {
 
 /** "Oct 21, 2026"-style label for the order list. */
 export function orderDayLabel(placedAt) {
+  // Draft orders may have no placed time; don't let one row break the list.
+  if (placedAt == null || Number.isNaN(new Date(placedAt).getTime())) return 'No date';
   const [year, month, day] = orderDay(placedAt).split('-').map(Number);
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   return `${months[month - 1]} ${day}, ${year}`;
