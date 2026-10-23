@@ -17,3 +17,9 @@ test('the last orders are on a page of their own when they do not fill it', () =
   assert.equal(pageCount(10, 3), 4);
   assert.deepEqual(pageOf(orders, 4, 3), ['order-10']);
 });
+
+test('a page size below 1 is rejected instead of counting Infinity pages', () => {
+  assert.throws(() => pageCount(5, 0), RangeError);
+  assert.throws(() => pageCount(5, -3), RangeError);
+  assert.throws(() => pageOf(orders, 1, 0), RangeError);
+});

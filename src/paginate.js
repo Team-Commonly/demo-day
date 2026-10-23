@@ -2,6 +2,7 @@
 
 /** How many pages `count` items fill at `pageSize` per page. */
 export function pageCount(count, pageSize) {
+  if (pageSize < 1) throw new RangeError(`page size must be at least 1, got ${pageSize}`);
   return Math.floor(count / pageSize);
 }
 
