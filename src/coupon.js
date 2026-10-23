@@ -7,6 +7,8 @@ const COUPONS = {
 
 /** The coupon for a typed code, or null when there is none. */
 export function findCoupon(code) {
+  // A checkout with no code typed passes undefined; that's "no coupon", not an error.
+  if (code == null) return null;
   return COUPONS[code.trim()] || null;
 }
 
