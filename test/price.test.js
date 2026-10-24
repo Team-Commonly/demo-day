@@ -16,3 +16,9 @@ test('checkout shows the exact total, never a cent short', () => {
   assert.equal(formatPrice(cartTotal([{ unitPrice: 19.99, quantity: 3 }])), '$59.97');
   assert.equal(formatPrice(1.15), '$1.15');
 });
+
+test('a refund shows a minus sign before the dollar sign', () => {
+  assert.equal(formatPrice(-5.5), '-$5.50');
+  assert.equal(formatPrice(-0.25), '-$0.25');
+  assert.equal(formatPrice(-12), '-$12.00');
+});
