@@ -7,8 +7,9 @@ export function cartTotal(lines) {
 
 /** "$59.97"-style string, always two decimals. */
 export function formatPrice(amount) {
-  const cents = Math.floor(amount * 100);
+  const sign = amount < 0 ? '-' : '';
+  const cents = Math.floor(Math.abs(amount) * 100);
   const dollars = Math.floor(cents / 100);
   const rest = String(cents % 100).padStart(2, '0');
-  return `$${dollars}.${rest}`;
+  return `${sign}$${dollars}.${rest}`;
 }

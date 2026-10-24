@@ -7,6 +7,18 @@ test('whole and half dollars keep two decimals', () => {
   assert.equal(formatPrice(12.5), '$12.50');
 });
 
+test('refunds put the minus sign before the dollar sign', () => {
+  assert.equal(formatPrice(-5.5), '-$5.50');
+  assert.equal(formatPrice(-0.25), '-$0.25');
+  assert.equal(formatPrice(-5), '-$5.00');
+  assert.equal(formatPrice(-0.01), '-$0.01');
+});
+
+test('zero has no minus sign', () => {
+  assert.equal(formatPrice(0), '$0.00');
+  assert.equal(formatPrice(-0), '$0.00');
+});
+
 test('a cart sums its lines', () => {
   assert.equal(cartTotal([{ unitPrice: 2, quantity: 3 }, { unitPrice: 1.5, quantity: 2 }]), 9);
 });
