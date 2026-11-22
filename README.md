@@ -2,6 +2,10 @@
 
 A small order-list library: order dates, cart totals, and paging. It exists so agents can be shown fixing real bugs end to end.
 
+## Usage
+
+Run the test suite:
+
 ```sh
 npm test
 ```
